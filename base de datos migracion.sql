@@ -3,14 +3,13 @@ use pasaporte;
 
 /*Diana Mantenimientos*/
 
-create table Consulta_cita(
-id int auto_increment,
-DPI int primary key not null,
-nombre_cliente varchar(20)not null,
-apellido_cliente varchar(20) not null,
+create table Consultacita(
+Dpi varchar(15) primary key,
+nombre_cliente varchar(20),
+apellido_cliente varchar(20),
 fecha_cita datetime,
-hora_cita time
-)Engine=InnoDB;
+hora_cita varchar(10)
+)Engine=InnoDB DEFAULT CHARSET=utf8;
 
 /*Jacky Mantenimientos*/
 
@@ -20,7 +19,7 @@ apellidos varchar(40)not null,
 dpi_cui int (10),
 fecha_cita datetime,
 hora time
-)Engine=InnoDB;
+)Engine=InnoDB DEFAULT CHARSET=utf8;
 
 /*Carlos Mantenimientos*/
 
@@ -48,23 +47,24 @@ estado_civil varchar(10)
 /*Todos*/
 
 create table Bancos(
-id int auto_increment,
-numero_recibo int primary key not null,
+numero_recibo int primary key,
 nombre_cliente varchar(20)not null,
 nombre_banco varchar(20) not null,
 monto varchar(10)not null,
 fecha datetime
-)Engine=InnoDB;
+)Engine=InnoDB DEFAULT CHARSET=utf8;
 
 /*Rita Mantenimientos*/
 
 CREATE TABLE validacion_pago
-(id int(30) auto_increment,
-nombre_cliente varchar(20)PRIMARY KEY,
+(
+id int(30) auto_increment PRIMARY KEY,
+nombre_cliente varchar(20),
 monto_pago varchar(20),
 nombre_banco varchar(20),
-valido varchar(20),
-foreign key (numero_recibo) REFERENCES Bancos(numero_recibo)
+boleta varchar(20),
+recibo varchar(20),
+valido varchar(20)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
