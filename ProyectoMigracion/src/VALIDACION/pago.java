@@ -66,6 +66,7 @@ int i=0;
         jLabel7 = new javax.swing.JLabel();
         txt_buscar = new javax.swing.JTextField();
         eliminar = new javax.swing.JButton();
+        buscar = new javax.swing.JButton();
 
         txt_banco.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -139,12 +140,19 @@ int i=0;
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Ingrese de validación:");
+        jLabel7.setText("Ingrese el codigo de  validación de pago:");
 
         eliminar.setText("Eliminar");
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarActionPerformed(evt);
+            }
+        });
+
+        buscar.setText("Buscar");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
             }
         });
 
@@ -165,9 +173,7 @@ int i=0;
                         .addGap(23, 23, 23)
                         .addComponent(modificar)
                         .addGap(20, 20, 20)
-                        .addComponent(eliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label_status, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(eliminar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(jLabel1))
@@ -206,13 +212,18 @@ int i=0;
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
-                        .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buscar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label_status, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -251,17 +262,19 @@ int i=0;
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txt_validacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8))
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(label_status, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(modificar)))
+                                .addGap(37, 37, 37)
+                                .addComponent(modificar))
                             .addComponent(eliminar)))
                     .addComponent(registrar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buscar))
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(label_status, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7))
         );
 
         pack();
@@ -372,11 +385,40 @@ int i=0;
         especificaciones();
     }//GEN-LAST:event_banco03ActionPerformed
 
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        // TODO add your handling code here:
+        try{
+            Connection cn;
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/pasaporte", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from validacion_pago; where id = ?");
+            pst.setString(1, txt_buscar.getText().trim());
+
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+
+                txt_nombre.setText(rs.getString("nombre_cliente"));
+                txt_monto.setText(rs.getString("monto_pago"));
+                txt_banco.setText(rs.getString("nombre_banco"));
+                txt_boleta.setText(rs.getString("boleta"));
+                txt_recibo.setText(rs.getString("recibo"));
+                txt_validacion.setSelectedItem(rs.getString("valido"));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Registro de validacion de pago no registrado.");
+            }
+
+        }catch (Exception e){
+
+        }
+    }//GEN-LAST:event_buscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton banco01;
     private javax.swing.JButton banco02;
     private javax.swing.JButton banco03;
+    private javax.swing.JButton buscar;
     private javax.swing.JLabel dibujo;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel jLabel1;
