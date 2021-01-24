@@ -1,7 +1,4 @@
-
-
-
-/*  DIANA CAROLINA VICTORES ROMERO 9959-19-1471
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -18,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author Diana
  */
-public class Consulta_Cita extends javax.swing.JFrame {
+public class Consulta_Citaa extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Consulta_Cita
+     * Creates new form Consulta_Citaa
      */
-    public Consulta_Cita() {
+    public Consulta_Citaa() {
         initComponents();
     }
 
@@ -36,7 +33,6 @@ public class Consulta_Cita extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSpinner1 = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -54,9 +50,8 @@ public class Consulta_Cita extends javax.swing.JFrame {
         ELIMINAR = new javax.swing.JButton();
         Label_status = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("CONSULTA DE CITA");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("CONSULTA CITA");
 
         jLabel2.setText("DPI");
 
@@ -64,7 +59,7 @@ public class Consulta_Cita extends javax.swing.JFrame {
 
         jLabel4.setText("Apellido");
 
-        jLabel5.setText("Fecha de cita");
+        jLabel5.setText("Fecha de Cita");
 
         jLabel6.setText("Hora de Cita");
 
@@ -96,7 +91,7 @@ public class Consulta_Cita extends javax.swing.JFrame {
             }
         });
 
-        Label_status.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Label_status.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,86 +100,111 @@ public class Consulta_Cita extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(30, 30, 30)
-                                .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(220, 220, 220)
+                                .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
+                                .addGap(89, 89, 89)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(30, 30, 30)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtdpi)
-                                        .addComponent(txtnombre)
-                                        .addComponent(txthora, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
-                                    .addComponent(txtfecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtdpi)
+                                    .addComponent(txtnombre)
+                                    .addComponent(txtapellido)
+                                    .addComponent(txtfecha)
+                                    .addComponent(txthora))))
+                        .addGap(71, 71, 71)
+                        .addComponent(Label_status))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addGap(30, 30, 30)
                         .addComponent(BUSCAR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(REGISTRAR)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(MODIFICAR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(ELIMINAR)))
-                .addContainerGap(98, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Label_status)
-                .addGap(125, 125, 125))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel2))
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
                     .addComponent(txtdpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addComponent(Label_status)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(Label_status)
+                            .addGap(28, 28, 28)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txthora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BUSCAR)
                     .addComponent(REGISTRAR)
                     .addComponent(MODIFICAR)
-                    .addComponent(ELIMINAR)
-                    .addComponent(BUSCAR))
-                .addContainerGap(146, Short.MAX_VALUE))
+                    .addComponent(ELIMINAR))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BUSCARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BUSCARActionPerformed
+        // TODO add your handling code here:
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/pasaporte", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from Consultacita where DPI = ?");
+            pst.setString(1, txtdpi.getText().trim());
+
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+                //txtdpi.setText(rs.getString("Dpi"));
+                txtnombre.setText(rs.getString("nombre_cliente"));
+                txtapellido.setText(rs.getString("apellido_cliente"));
+                txtfecha.setText(rs.getString("fecha_cita"));
+                txthora.setText(rs.getString("hora_cita"));
+       
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Persona no registrada.");
+            }
+
+        }catch (Exception e){
+
+    }    
+    }//GEN-LAST:event_BUSCARActionPerformed
+
     private void REGISTRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REGISTRARActionPerformed
         // TODO add your handling code here:
-          try {
+        try {
            
             Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/pasaporte","root","");
             java.sql.PreparedStatement pst = cn.prepareStatement("insert into Consultacita values(?,?,?,?,?)");
@@ -215,7 +235,7 @@ public class Consulta_Cita extends javax.swing.JFrame {
 
     private void MODIFICARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICARActionPerformed
         // TODO add your handling code here:
-       try {
+        try {
             String ID = txtdpi.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/pasaporte", "root", "");
@@ -234,11 +254,12 @@ public class Consulta_Cita extends javax.swing.JFrame {
 
         } catch (Exception e) {
         }
+        
     }//GEN-LAST:event_MODIFICARActionPerformed
 
     private void ELIMINARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELIMINARActionPerformed
         // TODO add your handling code here:
-         try {
+        try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/pasaporte", "root", "");
             PreparedStatement pst = cn.prepareStatement("delete from Consultacita where DPI = ?");
 
@@ -258,66 +279,6 @@ public class Consulta_Cita extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ELIMINARActionPerformed
 
-    private void BUSCARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BUSCARActionPerformed
-        // TODO add your handling code here:
-        try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/pasaporte", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from Consultacita where DPI = ?");
-            pst.setString(1, txtdpi.getText().trim());
-
-            ResultSet rs = pst.executeQuery();
-
-            if(rs.next()){
-                //txtdpi.setText(rs.getString("Dpi"));
-                txtnombre.setText(rs.getString("nombre_cliente"));
-                txtapellido.setText(rs.getString("apellido_cliente"));
-                txtfecha.setText(rs.getString("fecha_cita"));
-                txthora.setText(rs.getString("hora_cita"));
-       
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Persona no registrada.");
-            }
-
-        }catch (Exception e){
-
-    }     
-    }//GEN-LAST:event_BUSCARActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Consulta_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Consulta_Cita().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BUSCAR;
@@ -331,7 +292,6 @@ public class Consulta_Cita extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtdpi;
     private javax.swing.JTextField txtfecha;
