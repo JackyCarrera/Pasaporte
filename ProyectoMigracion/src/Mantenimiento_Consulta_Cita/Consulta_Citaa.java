@@ -34,30 +34,24 @@ public class Consulta_Citaa extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtdpi = new javax.swing.JTextField();
-        txtnombre = new javax.swing.JTextField();
-        txtapellido = new javax.swing.JTextField();
         txtfecha = new javax.swing.JTextField();
         txthora = new javax.swing.JTextField();
         BUSCAR = new javax.swing.JButton();
-        REGISTRAR = new javax.swing.JButton();
-        MODIFICAR = new javax.swing.JButton();
-        ELIMINAR = new javax.swing.JButton();
         Label_status = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setVisible(true);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("CONSULTA CITA");
-
-        jLabel2.setText("DPI");
-
-        jLabel3.setText("Nombre");
-
-        jLabel4.setText("Apellido");
+        jLabel1.setText("CONSULTA FECHA DE CITA");
 
         jLabel5.setText("Fecha de Cita");
 
@@ -70,107 +64,72 @@ public class Consulta_Citaa extends javax.swing.JInternalFrame {
             }
         });
 
-        REGISTRAR.setText("REGISTRAR");
-        REGISTRAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                REGISTRARActionPerformed(evt);
-            }
-        });
-
-        MODIFICAR.setText("MODIFICAR");
-        MODIFICAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MODIFICARActionPerformed(evt);
-            }
-        });
-
-        ELIMINAR.setText("ELIMINAR");
-        ELIMINAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ELIMINARActionPerformed(evt);
-            }
-        });
-
         Label_status.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        jLabel7.setText("INGRESE UNA FECHA DE SU CONVENIENCIA");
+
+        jLabel2.setText("Ejemplo: 2021/02/01");
+
+        jLabel3.setText("Ejemplo: 12:30");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(357, 357, 357)
+                        .addComponent(Label_status))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(76, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txthora, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BUSCAR))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))))
+                .addGap(85, 85, 85))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(220, 220, 220)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtdpi)
-                                    .addComponent(txtnombre)
-                                    .addComponent(txtapellido)
-                                    .addComponent(txtfecha)
-                                    .addComponent(txthora))))
-                        .addGap(71, 71, 71)
-                        .addComponent(Label_status))
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(BUSCAR)
-                        .addGap(18, 18, 18)
-                        .addComponent(REGISTRAR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(MODIFICAR)
-                        .addGap(18, 18, 18)
-                        .addComponent(ELIMINAR)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(9, 9, 9)
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtdpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(Label_status)
-                            .addGap(28, 28, 28)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
                     .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txthora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BUSCAR)
-                    .addComponent(REGISTRAR)
-                    .addComponent(MODIFICAR)
-                    .addComponent(ELIMINAR))
-                .addContainerGap(126, Short.MAX_VALUE))
+                    .addComponent(txthora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Label_status)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(BUSCAR)
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -180,21 +139,20 @@ public class Consulta_Citaa extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/pasaporte", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from Consultacita where DPI = ?");
-            pst.setString(1, txtdpi.getText().trim());
+            PreparedStatement pst = cn.prepareStatement("select * from Informacion_cliente where fecha_cita = ?");
+            pst.setString(1, txtfecha.getText().trim());
 
             ResultSet rs = pst.executeQuery();
 
             if(rs.next()){
-                //txtdpi.setText(rs.getString("Dpi"));
-                txtnombre.setText(rs.getString("nombre_cliente"));
-                txtapellido.setText(rs.getString("apellido_cliente"));
                 txtfecha.setText(rs.getString("fecha_cita"));
                 txthora.setText(rs.getString("hora_cita"));
-       
+       JOptionPane.showMessageDialog(null, "Fecha ocupada vuelva a ingresar nueva fecha.");
 
             } else {
-                JOptionPane.showMessageDialog(null, "Persona no registrada.");
+                JOptionPane.showMessageDialog(null, "Fecha disponible prosiga a pagar a su banco mas cercano"
+                        + " cuenta: 851011. "
+                        + "Regrese con su recibo a reservar su cita ");
             }
 
         }catch (Exception e){
@@ -202,100 +160,17 @@ public class Consulta_Citaa extends javax.swing.JInternalFrame {
     }    
     }//GEN-LAST:event_BUSCARActionPerformed
 
-    private void REGISTRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REGISTRARActionPerformed
-        // TODO add your handling code here:
-        try {
-           
-            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/pasaporte","root","");
-            java.sql.PreparedStatement pst = cn.prepareStatement("insert into Consultacita values(?,?,?,?,?)");
-
-           // pst.setString(1, "0");
-            pst.setString(1, txtdpi.getText().trim());
-            pst.setString(2, txtnombre.getText().trim());
-            pst.setString(3, txtapellido.getText().trim());
-            pst.setString(4, txtfecha.getText().trim());
-            pst.setString(5, txthora.getText().trim());
-            
-
-            pst.executeUpdate();
-
-            txtdpi.setText("");
-            txtnombre.setText("");
-            txtapellido.setText("");
-            txtfecha.setText("");
-            txthora.setText("");
-           
-
-            Label_status.setText("Registro exitoso");
-
-        } catch (Exception e) {
-
-        }
-    }//GEN-LAST:event_REGISTRARActionPerformed
-
-    private void MODIFICARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICARActionPerformed
-        // TODO add your handling code here:
-        try {
-            String ID = txtdpi.getText().trim();
-
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/pasaporte", "root", "");
-            PreparedStatement pst = cn.prepareStatement("update Consultacita set Dpi = ?, nombre_cliente = ?, apellido_cliente = ?, fecha_cita = ?, hora_cita = ? where DPI = " + ID);
-
-            pst.setString(1, txtdpi.getText().trim());
-            pst.setString(2, txtnombre.getText().trim()); 
-            pst.setString(3, txtapellido.getText().trim()); 
-            pst.setString(4, txtfecha.getText().trim());
-            pst.setString(5, txthora.getText().trim()); 
-           
-
-            pst.executeUpdate();
-
-            Label_status.setText("Modificación exitosa.");
-
-        } catch (Exception e) {
-        }
-        
-    }//GEN-LAST:event_MODIFICARActionPerformed
-
-    private void ELIMINARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELIMINARActionPerformed
-        // TODO add your handling code here:
-        try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/pasaporte", "root", "");
-            PreparedStatement pst = cn.prepareStatement("delete from Consultacita where DPI = ?");
-
-            pst.setString(1, txtdpi.getText().trim());
-            pst.executeUpdate();
-            
-            txtdpi.setText("");
-            txtnombre.setText("");
-            txtapellido.setText("");
-            txtfecha.setText("");
-            txthora.setText("");
-            
-            
-            Label_status.setText("Registro eliminado.");
-
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_ELIMINARActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BUSCAR;
-    private javax.swing.JButton ELIMINAR;
     private javax.swing.JLabel Label_status;
-    private javax.swing.JButton MODIFICAR;
-    private javax.swing.JButton REGISTRAR;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField txtapellido;
-    private javax.swing.JTextField txtdpi;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txthora;
-    private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
 }
