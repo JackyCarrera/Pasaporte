@@ -36,6 +36,7 @@ public class Consulta_Cita extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinner1 = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -107,15 +108,6 @@ public class Consulta_Cita extends javax.swing.JFrame {
                         .addGap(218, 218, 218)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(BUSCAR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(REGISTRAR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(MODIFICAR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ELIMINAR))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -134,7 +126,16 @@ public class Consulta_Cita extends javax.swing.JFrame {
                                         .addComponent(txtdpi)
                                         .addComponent(txtnombre)
                                         .addComponent(txthora, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
-                                    .addComponent(txtfecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtfecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(BUSCAR)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(REGISTRAR)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MODIFICAR)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ELIMINAR)))
                 .addContainerGap(98, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -171,11 +172,11 @@ public class Consulta_Cita extends javax.swing.JFrame {
                     .addComponent(txthora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BUSCAR)
                     .addComponent(REGISTRAR)
                     .addComponent(MODIFICAR)
-                    .addComponent(ELIMINAR))
-                .addContainerGap(55, Short.MAX_VALUE))
+                    .addComponent(ELIMINAR)
+                    .addComponent(BUSCAR))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         pack();
@@ -183,17 +184,18 @@ public class Consulta_Cita extends javax.swing.JFrame {
 
     private void REGISTRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REGISTRARActionPerformed
         // TODO add your handling code here:
-         try {
-            
-            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/pasaporte","root", "");
-            java.sql.PreparedStatement pst = cn.prepareStatement("insert into Consultacita values(?,?,?,?,?,?)");
+          try {
+           
+            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/pasaporte","root","");
+            java.sql.PreparedStatement pst = cn.prepareStatement("insert into Consultacita values(?,?,?,?,?)");
 
-            pst.setString(1, "0");
-            pst.setString(2, txtdpi.getText().trim());
-            pst.setString(3, txtnombre.getText().trim());
-            pst.setString(4, txtapellido.getText().trim());
-            pst.setString(5, txtfecha.getText().trim());
-            pst.setString(6, txthora.getText().trim());
+           // pst.setString(1, "0");
+            pst.setString(1, txtdpi.getText().trim());
+            pst.setString(2, txtnombre.getText().trim());
+            pst.setString(3, txtapellido.getText().trim());
+            pst.setString(4, txtfecha.getText().trim());
+            pst.setString(5, txthora.getText().trim());
+            
 
             pst.executeUpdate();
 
@@ -213,17 +215,19 @@ public class Consulta_Cita extends javax.swing.JFrame {
 
     private void MODIFICARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MODIFICARActionPerformed
         // TODO add your handling code here:
-        try {
+       try {
             String ID = txtdpi.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/pasaporte", "root", "");
-            PreparedStatement pst = cn.prepareStatement("update Consultacita set Dpi = ?, nombre_cliente = ?, apellido_cliente = ?, fecha_cita = ?, hora_cita = ? where ID = " + ID);
+            PreparedStatement pst = cn.prepareStatement("update Consultacita set Dpi = ?, nombre_cliente = ?, apellido_cliente = ?, fecha_cita = ?, hora_cita = ? where DPI = " + ID);
 
-            pst.setString(1, txtnombre.getText().trim());
-            pst.setString(2, txtapellido.getText().trim()); 
-            pst.setString(3, txtfecha.getText().trim()); 
-            pst.setString(4, txthora.getText().trim());
-      
+            pst.setString(1, txtdpi.getText().trim());
+            pst.setString(2, txtnombre.getText().trim()); 
+            pst.setString(3, txtapellido.getText().trim()); 
+            pst.setString(4, txtfecha.getText().trim());
+            pst.setString(5, txthora.getText().trim()); 
+           
+
             pst.executeUpdate();
 
             Label_status.setText("Modificación exitosa.");
@@ -240,7 +244,8 @@ public class Consulta_Cita extends javax.swing.JFrame {
 
             pst.setString(1, txtdpi.getText().trim());
             pst.executeUpdate();
-
+            
+            txtdpi.setText("");
             txtnombre.setText("");
             txtapellido.setText("");
             txtfecha.setText("");
@@ -263,6 +268,7 @@ public class Consulta_Cita extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
 
             if(rs.next()){
+                //txtdpi.setText(rs.getString("Dpi"));
                 txtnombre.setText(rs.getString("nombre_cliente"));
                 txtapellido.setText(rs.getString("apellido_cliente"));
                 txtfecha.setText(rs.getString("fecha_cita"));
@@ -325,6 +331,7 @@ public class Consulta_Cita extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtdpi;
     private javax.swing.JTextField txtfecha;
