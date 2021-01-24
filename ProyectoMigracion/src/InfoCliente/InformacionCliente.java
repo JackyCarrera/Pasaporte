@@ -5,12 +5,39 @@
  */
 package InfoCliente;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jacky
  */
 public class InformacionCliente extends javax.swing.JInternalFrame {
-
+private static Connection con;
+    private static final String driver = "pasaporte";
+    private static final String user = "root";
+    private static final String pass = "";
+    private static final String url = "jdbc:mysql://localhost:3306/sin";
+    String cod;
+    public void conector() {
+        // Reseteamos a null la conexion a la bd
+        con = null;
+        try {
+            Class.forName(driver);
+            // Nos conectamos a la bd
+            con = (Connection) DriverManager.getConnection(url, user, pass);
+            // Si la conexion fue exitosa mostramos un mensaje de conexion exitosa
+            if (con != null) {
+                ESTADO.setText("Conexion establecida");
+            }
+        } // Si la conexion NO fue exitosa mostramos un mensaje de error
+        catch (ClassNotFoundException | SQLException e) {
+            ESTADO.setText("Error de conexion" + e);
+        }}
     /**
      * Creates new form InformacionCliente
      */
@@ -27,21 +54,274 @@ public class InformacionCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        nom = new javax.swing.JTextField();
+        ape = new javax.swing.JTextField();
+        dpi = new javax.swing.JTextField();
+        fecha = new javax.swing.JTextField();
+        hora = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtbuscar = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        Label1 = new javax.swing.JLabel();
+        ESTADO = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        jLabel1.setText("Informacion Cliente");
+
+        jLabel2.setText("Nombres:");
+
+        jLabel3.setText("Apellidos:");
+
+        jLabel4.setText("DPI/CUI:");
+
+        jLabel5.setText("Fecha de la cita:");
+
+        jLabel6.setText("Hora:");
+
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Buscar Nombre:");
+
+        jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Modificar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Ingresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1)
+                                .addGap(59, 59, 59))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nom)
+                                    .addComponent(ape)
+                                    .addComponent(dpi)
+                                    .addComponent(fecha)
+                                    .addComponent(hora)
+                                    .addComponent(txtbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton3)
+                                    .addComponent(ESTADO, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(ape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(dpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ESTADO, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(Label1, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton4)
+                    .addComponent(jButton1))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pasaporte", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from informacion_cliente where dpi_cui = ?");
+            pst.setString(1, txtbuscar.getText().trim());
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                nom.setText(rs.getString("nombres"));
+                ape.setText(rs.getString("apellidos"));
+                dpi.setText(rs.getString("dpi_cui"));
+                fecha.setText(rs.getString("fecha_cita"));
+                hora.setText(rs.getString("hora"));
+                cod = txtbuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "Cliente no registrado.");
+                txtbuscar.setText("");
+            }
+
+        } catch (Exception e) {
+            System.out.print(e.getMessage());
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pasaporte", "root", "");
+            PreparedStatement pst = cn.prepareStatement("insert into Informacion_cliente values(?,?,?,?,?)");
+
+            pst.setString(1, nom.getText().trim());
+            pst.setString(2, ape.getText().trim());
+            pst.setString(3, dpi.getText().trim());
+            pst.setString(4, fecha.getText().trim());
+            pst.setString(5, hora.getText().trim());
+            pst.executeUpdate();
+            nom.setText("");
+            ape.setText("");
+            dpi.setText("");
+            fecha.setText("");
+            hora.setText("");
+            Label1.setText("El Cliente se Registro");
+
+        } catch (Exception e) {
+            System.out.print(e.getMessage());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        try {
+            String ID = txtbuscar.getText().trim();
+
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pasaporte", "root", "");
+            PreparedStatement pst = cn.prepareStatement("update Informacion_cliente set nombres = ?, apellidos = ?, dpi_cui = ?, fecha_cita= ?, hora = ? where dpi_cui=?");
+
+            pst.setString(1, nom.getText().trim());
+            pst.setString(2, ape.getText().trim());
+            pst.setString(3, dpi.getText().trim());
+            pst.setString(4, fecha.getText().trim());
+            pst.setString(5, hora.getText().trim());
+            pst.setString(6, cod.trim());
+
+            pst.executeUpdate();
+
+            nom.setText("");
+            ape.setText("");
+            dpi.setText("");
+            fecha.setText("");
+            hora.setText("");
+            Label1.setText("Registro Modificado.");
+
+        } catch (Exception e) {
+            System.out.print(e.getMessage());
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pasaporte", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from Informacion_cliente where dpi_cui = ?");
+
+            pst.setString(1, txtbuscar.getText().trim());
+            pst.executeUpdate();
+
+            nom.setText("");
+            ape.setText("");
+            dpi.setText("");
+            fecha.setText("");
+            hora.setText("");
+            Label1.setText("Registro eliminado.");
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ESTADO;
+    private javax.swing.JLabel Label1;
+    private javax.swing.JTextField ape;
+    private javax.swing.JTextField dpi;
+    private javax.swing.JTextField fecha;
+    private javax.swing.JTextField hora;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField nom;
+    private javax.swing.JTextField txtbuscar;
     // End of variables declaration//GEN-END:variables
 }
