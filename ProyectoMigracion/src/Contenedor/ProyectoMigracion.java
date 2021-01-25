@@ -1,3 +1,5 @@
+
+
 package Contenedor;
 
 import java.awt.Graphics;
@@ -65,7 +67,7 @@ private Renap.Verificacion_De_Datos_Personales nueva5;
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Contenedor/migracion.png"))); // NOI18N
-        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, -1, 90));
+        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 550, 620, 90));
 
         getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 650));
 
