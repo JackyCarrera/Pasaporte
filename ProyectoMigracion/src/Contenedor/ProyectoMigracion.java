@@ -65,9 +65,9 @@ private Renap.Verificacion_De_Datos_Personales nueva5;
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Contenedor/migracion.png"))); // NOI18N
-        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, -1, 90));
+        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, -1, 90));
 
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 840, 680));
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 650));
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
@@ -102,6 +102,7 @@ private Renap.Verificacion_De_Datos_Personales nueva5;
         jMenu2.setText("Bancos y Renap");
         jMenu2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        jMenuItem5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jMenuItem5.setText("Banrural");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +111,7 @@ private Renap.Verificacion_De_Datos_Personales nueva5;
         });
         jMenu2.add(jMenuItem5);
 
+        jMenuItem6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jMenuItem6.setText("Renap");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
